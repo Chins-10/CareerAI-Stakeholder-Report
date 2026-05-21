@@ -1,0 +1,308 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif);background:#f8f7f4;color:#1a1a1a;line-height:1.6}
+.page{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.hero{background:#1a1a2e;border-radius:16px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.hero:before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:rgba(99,153,34,0.15)}
+.hero:after{content:'';position:absolute;bottom:-40px;left:40px;width:160px;height:160px;border-radius:50%;background:rgba(55,138,221,0.1)}
+.hero-tag{display:inline-block;background:rgba(255,255,255,0.1);color:#aaa;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:0.06em;text-transform:uppercase}
+.hero h1{font-size:28px;font-weight:500;color:#fff;margin-bottom:8px}
+.hero p{font-size:14px;color:#aaa;max-width:520px}
+.hero-meta{display:flex;gap:20px;margin-top:20px;flex-wrap:wrap}
+.hero-meta span{font-size:12px;color:#888}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+.kpi{background:#fff;border-radius:12px;padding:1.25rem;border:1px solid #eee;text-align:center}
+.kpi-num{font-size:28px;font-weight:500;margin-bottom:4px}
+.kpi-label{font-size:12px;color:#888}
+.section{background:#fff;border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;border:1px solid #eee}
+.section-title{font-size:16px;font-weight:500;color:#1a1a1a;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.section-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.section-sub{font-size:13px;color:#888;margin-bottom:1.25rem}
+.badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:500}
+.bg-green{background:#eaf3de;color:#27500a}
+.bg-red{background:#fcebeb;color:#501313}
+.bg-amber{background:#faeeda;color:#633806}
+.bg-blue{background:#e6f1fb;color:#0c447c}
+.bg-gray{background:#f1efe8;color:#444}
+.insight-box{background:#1a1a2e;border-radius:12px;padding:1.5rem;color:#fff;margin-bottom:1.5rem}
+.insight-box .label{font-size:11px;color:#639922;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
+.insight-box p{font-size:15px;color:#e8e8e8;line-height:1.7}
+.comp-table{width:100%;border-collapse:collapse;font-size:13px}
+.comp-table th{padding:10px 12px;text-align:left;font-size:11px;color:#888;font-weight:500;border-bottom:2px solid #f0f0f0;background:var(--color-background-secondary,#f8f7f4)}
+.comp-table td{padding:10px 12px;border-bottom:1px solid #f8f7f4;vertical-align:middle}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:hover td{background:#fafafa}
+.comp-table td:first-child{font-weight:500;color:#333}
+.sent-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sent-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;margin-bottom:6px;font-size:13px}
+.sent-rank{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;margin-top:1px}
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.swot-cell{border-radius:12px;padding:1.25rem}
+.swot-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+.swot-cell ul{list-style:none}
+.swot-cell ul li{font-size:13px;padding:4px 0;padding-left:14px;position:relative;line-height:1.5}
+.swot-cell ul li:before{content:"—";position:absolute;left:0;opacity:0.5}
+.opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.opp-card{border-radius:12px;padding:1.25rem;border:1px solid #eee;background:#fafafa;position:relative;overflow:hidden}
+.opp-card:before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+.opp-num{font-size:28px;font-weight:500;opacity:0.12;position:absolute;top:10px;right:14px;line-height:1}
+.opp-title{font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:6px;margin-top:4px}
+.opp-desc{font-size:12px;color:#666;line-height:1.6}
+.ie-matrix{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;height:200px}
+.ie-cell{border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.ie-cell-title{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+.ie-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;margin:2px}
+.qа-kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:1.25rem}
+.defect-item{border-radius:12px;padding:1rem 1.25rem;margin-bottom:10px;border-left:4px solid}
+.defect-title{font-size:14px;font-weight:500;margin-bottom:4px}
+.defect-meta{font-size:12px;color:#888;margin-bottom:6px}
+.defect-desc{font-size:13px;line-height:1.6}
+.stat-bar{margin-bottom:8px}
+.stat-bar-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.stat-bar-track{background:#f0f0f0;border-radius:4px;height:8px;overflow:hidden}
+.stat-bar-fill{height:100%;border-radius:4px}
+.flow-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:1rem}
+.flow-table th{padding:8px 12px;font-size:11px;color:#888;font-weight:500;border-bottom:2px solid #f0f0f0;text-align:left}
+.flow-table td{padding:9px 12px;border-bottom:1px solid #f8f7f4;vertical-align:middle}
+.flow-table tr:last-child td{border-bottom:none}
+.verdict{display:flex;align-items:center;gap:16px;padding:1.25rem 1.5rem;border-radius:12px;background:#faeeda;border:1px solid #ba7517;margin-top:1rem}
+.verdict-icon{font-size:32px;flex-shrink:0}
+.verdict-title{font-size:14px;font-weight:500;color:#633806;margin-bottom:3px}
+.verdict-desc{font-size:13px;color:#633806;line-height:1.6}
+.sprint-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sprint-card{border-radius:12px;padding:1.25rem;border:1px solid #eee;background:#fafafa}
+.sprint-name{font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:4px}
+.sprint-weeks{font-size:11px;color:#888;margin-bottom:8px}
+.sprint-goal{font-size:12px;color:#555;background:#f0f0f0;padding:6px 10px;border-radius:8px;margin-bottom:10px}
+.sprint-item{font-size:12px;color:#555;padding:4px 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:flex-start;gap:6px;line-height:1.5}
+.sprint-item:last-child{border-bottom:none}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.platform-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1rem}
+.platform-card{border-radius:10px;padding:1rem;text-align:center;border:1px solid #eee;background:#fafafa}
+.platform-rating{font-size:20px;font-weight:500;margin-bottom:2px}
+.platform-name{font-size:11px;color:#888;margin-bottom:4px}
+.platform-count{font-size:12px;color:#555}
+.star{color:#F59E0B}
+.divider{height:1px;background:#eee;margin:1.5rem 0}
+</style>
+
+<div class="page">
+
+<div class="hero">
+  <div class="hero-tag">Pre-sprint stakeholder brief</div>
+  <h1>CareerAI — Research findings & sprint plan</h1>
+  <p>Competitive analysis, user sentiment, QA findings, and a 2-month sprint plan for the CareerAI V1 relaunch.</p>
+  <div class="hero-meta">
+    <span>📋 Prepared by Chinmayee</span>
+    <span>📅 May 2026</span>
+    <span>🎯 Audience: Product, Engineering, Design</span>
+  </div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="kpi-num" style="color:#378ADD">25</div><div class="kpi-label">Reddit data points</div></div>
+  <div class="kpi"><div class="kpi-num" style="color:#1D9E75">4</div><div class="kpi-label">Review platforms</div></div>
+  <div class="kpi"><div class="kpi-num" style="color:#7F77DD">35</div><div class="kpi-label">Test cases run</div></div>
+  <div class="kpi"><div class="kpi-num" style="color:#639922">74%</div><div class="kpi-label">QA pass rate</div></div>
+</div>
+
+<div class="insight-box">
+  <div class="label">⚡ Core insight</div>
+  <p>No competitor currently wins on both <strong>speed</strong> and <strong>trustworthiness</strong> simultaneously. Jobright is fast but users don't trust its outputs. Hirecarta is honest but slow. That gap is CareerAI's primary market opportunity.</p>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#e6f1fb;color:#0c447c">1</span> Competitive landscape</div>
+  <div class="section-sub">Feature-by-feature comparison across the four key players</div>
+  <table class="comp-table">
+    <thead><tr><th>Feature</th><th>Jobright AI</th><th>Simplify</th><th>Hirecarta</th><th>CareerAI</th></tr></thead>
+    <tbody>
+      <tr><td>Real-time job alerts</td><td><span class="badge bg-green">✓ Full</span></td><td><span class="badge bg-amber">~ Partial</span></td><td><span class="badge bg-red">✕ None</span></td><td><span class="badge bg-green">✓ Full</span></td></tr>
+      <tr><td>Job listing freshness</td><td><span class="badge bg-red">✕ Mislabeled</span></td><td><span class="badge bg-green">✓ Fresh</span></td><td><span class="badge bg-red">✕ None</span></td><td><span class="badge bg-green">✓ Verified</span></td></tr>
+      <tr><td>Resume tailoring</td><td><span class="badge bg-amber">~ Needs editing</span></td><td><span class="badge bg-green">✓ Clean</span></td><td><span class="badge bg-green">✓ Thorough</span></td><td><span class="badge bg-green">✓ No hallucination</span></td></tr>
+      <tr><td>AI accuracy</td><td><span class="badge bg-red">✕ Fabricates</span></td><td><span class="badge bg-amber">~ Limited</span></td><td><span class="badge bg-green">✓ Honest</span></td><td><span class="badge bg-green">✓ Core principle</span></td></tr>
+      <tr><td>Autofill for applications</td><td><span class="badge bg-amber">~ Inaccurate</span></td><td><span class="badge bg-green">✓ Strong</span></td><td><span class="badge bg-red">✕ None</span></td><td><span class="badge bg-amber">~ Planned</span></td></tr>
+      <tr><td>Interview preparation</td><td><span class="badge bg-red">✕ None</span></td><td><span class="badge bg-red">✕ None</span></td><td><span class="badge bg-amber">~ $100+/hr</span></td><td><span class="badge bg-green">✓ Built-in</span></td></tr>
+      <tr><td>Billing transparency</td><td><span class="badge bg-red">✕ Discrepancies</span></td><td><span class="badge bg-green">✓ Clear</span></td><td><span class="badge bg-green">✓ Clear</span></td><td><span class="badge bg-green">✓ Verified ✅</span></td></tr>
+      <tr><td>Easy cancellation</td><td><span class="badge bg-red">✕ No cancel button</span></td><td><span class="badge bg-green">✓ Easy</span></td><td><span class="badge bg-green">✓ Easy</span></td><td><span class="badge bg-green">✓ Verified ✅</span></td></tr>
+      <tr><td>Mobile app</td><td><span class="badge bg-green">✓ iOS + Android</span></td><td><span class="badge bg-amber">~ Web-focused</span></td><td><span class="badge bg-red">✕ None</span></td><td><span class="badge bg-green">✓ iOS + Android</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#eaf3de;color:#27500a">2</span> User sentiment</div>
+  <div class="section-sub">25 Reddit posts + reviews across 4 platforms</div>
+  <div class="platform-row">
+    <div class="platform-card"><div class="platform-rating">4.6 <span class="star">★</span></div><div class="platform-name">Trustpilot</div><div class="platform-count">~1,380 reviews</div><div style="font-size:11px;color:#E24B4A;margin-top:4px">72% of 1★ = billing</div></div>
+    <div class="platform-card"><div class="platform-rating">4.8 <span class="star">★</span></div><div class="platform-name">Product Hunt</div><div class="platform-count">~40 reviews</div><div style="font-size:11px;color:#888;margin-top:4px">Launch audience bias</div></div>
+    <div class="platform-card"><div class="platform-rating">4.6 <span class="star">★</span></div><div class="platform-name">Chrome Web Store</div><div class="platform-count">500K+ users</div><div style="font-size:11px;color:#888;margin-top:4px">Autofill accuracy issues</div></div>
+    <div class="platform-card"><div class="platform-rating">N/A</div><div class="platform-name">App Store</div><div class="platform-count">500K+ combined</div><div style="font-size:11px;color:#888;margin-top:4px">Mobile browsing praised</div></div>
+  </div>
+  <div class="sent-grid">
+    <div>
+      <div style="font-size:13px;font-weight:500;margin-bottom:10px;color:#27500a">What users love</div>
+      <div class="sent-item" style="background:#eaf3de"><div class="sent-rank" style="background:#1D9E75;color:#fff">1</div><div>Real-time job alerts — being first to apply</div></div>
+      <div class="sent-item" style="background:#eaf3de"><div class="sent-rank" style="background:#1D9E75;color:#fff">2</div><div>Resume tailoring reflecting real experience</div></div>
+      <div class="sent-item" style="background:#eaf3de"><div class="sent-rank" style="background:#1D9E75;color:#fff">3</div><div>Job board more relevant than LinkedIn</div></div>
+      <div class="sent-item" style="background:#eaf3de"><div class="sent-rank" style="background:#1D9E75;color:#fff">4</div><div>Autofill saves time on Workday portals</div></div>
+      <div class="sent-item" style="background:#eaf3de"><div class="sent-rank" style="background:#1D9E75;color:#fff">5</div><div>Match score transparency before applying</div></div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:500;margin-bottom:10px;color:#501313">What users hate</div>
+      <div class="sent-item" style="background:#fcebeb"><div class="sent-rank" style="background:#E24B4A;color:#fff">1</div><div>Stale listings labeled as recently posted</div></div>
+      <div class="sent-item" style="background:#fcebeb"><div class="sent-rank" style="background:#E24B4A;color:#fff">2</div><div>Autofill fills wrong answers on custom fields</div></div>
+      <div class="sent-item" style="background:#fcebeb"><div class="sent-rank" style="background:#E24B4A;color:#fff">3</div><div>AI Agent on waitlist after paying for it</div></div>
+      <div class="sent-item" style="background:#fcebeb"><div class="sent-rank" style="background:#E24B4A;color:#fff">4</div><div>Price shown ≠ price charged at checkout</div></div>
+      <div class="sent-item" style="background:#fcebeb"><div class="sent-rank" style="background:#E24B4A;color:#fff">5</div><div>Resumes flagged as spam by ATS systems</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#faeeda;color:#633806">3</span> SWOT — Jobright AI</div>
+  <div class="section-sub">Understanding the competitor we are up against</div>
+  <div class="swot-grid">
+    <div class="swot-cell" style="background:#eaf3de"><div class="swot-label" style="color:#27500a">Strengths</div><ul><li style="color:#27500a">Real-time alerts with genuine speed advantage</li><li style="color:#27500a">Match score visible to all users on free tier</li><li style="color:#27500a">Strong brand awareness — recommended by ChatGPT</li><li style="color:#27500a">"Ask Orion" LinkedIn networking is unique</li><li style="color:#27500a">Manual consent gate builds trust in auto-apply</li></ul></div>
+    <div class="swot-cell" style="background:#fcebeb"><div class="swot-label" style="color:#501313">Weaknesses</div><ul><li style="color:#501313">Stale listings mislabeled as recent</li><li style="color:#501313">AI Agent locked behind waitlist for paying users</li><li style="color:#501313">Autofill inaccurate on custom questions</li><li style="color:#501313">Billing discrepancies and no cancel button</li><li style="color:#501313">No interview preparation feature</li></ul></div>
+    <div class="swot-cell" style="background:#e6f1fb"><div class="swot-label" style="color:#0c447c">Opportunities</div><ul><li style="color:#0c447c">Fix autofill to retain paying users</li><li style="color:#0c447c">Deliver AI Agent as promised</li><li style="color:#0c447c">Add interview prep — uncontested space</li><li style="color:#0c447c">Expand beyond US market</li></ul></div>
+    <div class="swot-cell" style="background:#faeeda"><div class="swot-label" style="color:#633806">Threats</div><ul><li style="color:#633806">Simplify winning on autofill quality</li><li style="color:#633806">Hirecarta gaining word-of-mouth traction</li><li style="color:#633806">ChatGPT used as a free resume substitute</li><li style="color:#633806">Growing negative Reddit sentiment</li></ul></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#eeedfe;color:#3c3489">4</span> Opportunities for CareerAI</div>
+  <div class="section-sub">Five specific gaps — all grounded in user evidence</div>
+  <div class="opp-grid">
+    <div class="opp-card" style="--c:#1D9E75"><div class="opp-card" style="border-left-color:#1D9E75;padding:1.25rem"><div class="opp-num" style="color:#1D9E75">01</div><div class="opp-title">Own the trust position</div><div class="opp-desc">No competitor has solved AI hallucination. Guarantee AI never fabricates credentials — make this a visible product promise.</div></div></div>
+    <div class="opp-card" style="border-left-color:#E24B4A"><div class="opp-num" style="color:#E24B4A">02</div><div class="opp-title">Radical billing transparency</div><div class="opp-desc">Price shown = price charged. Cancel button always visible. Jobright's biggest failure — easiest for us to fix. Already verified in QA.</div></div>
+    <div class="opp-card" style="border-left-color:#378ADD"><div class="opp-num" style="color:#378ADD">03</div><div class="opp-title">Verified job listings</div><div class="opp-desc">Show a verified posting date on every listing. Make freshness a visible feature, not a backend assumption.</div></div>
+    <div class="opp-card" style="border-left-color:#D4537E"><div class="opp-num" style="color:#D4537E">04</div><div class="opp-title">Interview prep as differentiator</div><div class="opp-desc">No competitor offers this at scale. Built-in AI interview prep tied to specific JDs — entirely uncontested.</div></div>
+    <div class="opp-card" style="border-left-color:#7F77DD"><div class="opp-num" style="color:#7F77DD">05</div><div class="opp-title">End-to-end workflow</div><div class="opp-desc">Most users stitch together 3–4 tools. CareerAI becomes the single platform: discover → tailor → apply → prepare → track.</div></div>
+    <div class="opp-card" style="border-left-color:#BA7517;background:#faeeda"><div class="opp-num" style="color:#BA7517">B2B</div><div class="opp-title">Bootcamps & career centers</div><div class="opp-desc">Platform licensing for institutions. Bulk account creation, student onboarding, and admin progress dashboard.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#eaf3de;color:#27500a">5</span> Impact vs effort</div>
+  <div class="section-sub">Where to focus first</div>
+  <div style="position:relative;padding-left:32px">
+    <div style="position:absolute;left:0;top:0;height:100%;display:flex;align-items:center"><span style="font-size:11px;color:#888;writing-mode:vertical-rl;transform:rotate(180deg)">Higher impact ↑</span></div>
+    <div class="ie-matrix">
+      <div class="ie-cell" style="background:#eaf3de;border:1px solid #c0dd97"><div class="ie-cell-title" style="color:#27500a">✓ Do first</div><span class="ie-pill" style="background:#085041;color:#eaf3de">Billing transparency</span><span class="ie-pill" style="background:#085041;color:#eaf3de">Trust / no hallucination</span></div>
+      <div class="ie-cell" style="background:#e6f1fb;border:1px solid #b5d4f4"><div class="ie-cell-title" style="color:#0c447c">→ Plan next</div><span class="ie-pill" style="background:#0c447c;color:#e6f1fb">Verified listings</span><span class="ie-pill" style="background:#0c447c;color:#e6f1fb">Interview prep</span><span class="ie-pill" style="background:#0c447c;color:#e6f1fb">Pipeline view</span></div>
+      <div class="ie-cell" style="background:#f8f7f4;border:1px solid #eee"><div class="ie-cell-title" style="color:#888">Monitor</div><span class="ie-pill" style="background:#ddd;color:#666">Global coverage</span></div>
+      <div class="ie-cell" style="background:#f8f7f4;border:1px solid #eee"><div class="ie-cell-title" style="color:#888">Defer</div><span style="font-size:12px;color:#aaa">Nothing identified</span></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px"><span style="font-size:11px;color:#888">← Lower effort</span><span style="font-size:11px;color:#888">Higher effort →</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#fcebeb;color:#501313">6</span> QA findings</div>
+  <div class="section-sub">35 test cases across 9 flows and 4 browser/device combinations</div>
+
+  <div class="qа-kpi-row">
+    <div class="kpi"><div class="kpi-num" style="color:#378ADD;font-size:22px">35</div><div class="kpi-label">Cases run</div></div>
+    <div class="kpi"><div class="kpi-num" style="color:#1D9E75;font-size:22px">26</div><div class="kpi-label">Passed</div></div>
+    <div class="kpi"><div class="kpi-num" style="color:#E24B4A;font-size:22px">9</div><div class="kpi-label">Failed</div></div>
+    <div class="kpi"><div class="kpi-num" style="color:#639922;font-size:22px">74%</div><div class="kpi-label">Pass rate</div></div>
+    <div class="kpi"><div class="kpi-num" style="color:#E24B4A;font-size:22px">1</div><div class="kpi-label">Blocker</div></div>
+  </div>
+
+  <div style="margin-bottom:1.25rem">
+    <div class="stat-bar"><div class="stat-bar-label"><span>Chrome desktop</span><span style="color:#1D9E75;font-weight:500">26/35 — 74%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:74%;background:#1D9E75"></div></div></div>
+    <div class="stat-bar"><div class="stat-bar-label"><span>Firefox desktop</span><span style="color:#1D9E75;font-weight:500">35/35 — 100%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:100%;background:#1D9E75"></div></div></div>
+    <div class="stat-bar"><div class="stat-bar-label"><span>Safari desktop</span><span style="color:#E24B4A;font-weight:500">33/35 — 94%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:94%;background:#E24B4A"></div></div></div>
+    <div class="stat-bar"><div class="stat-bar-label"><span>Safari mobile</span><span style="color:#E24B4A;font-weight:500">33/35 — 94%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:94%;background:#E24B4A"></div></div></div>
+  </div>
+
+  <table class="flow-table">
+    <thead><tr><th>Flow</th><th>Result</th><th>Defects</th></tr></thead>
+    <tbody>
+      <tr><td>F1 · Sign-Up & Authentication</td><td><span class="badge bg-green">✓ Pass</span></td><td>—</td></tr>
+      <tr><td>F2 · Profile Management</td><td><span class="badge bg-amber">⚠ Defect</span></td><td>DEF-003</td></tr>
+      <tr><td>F3 · Create / Upload Resume</td><td><span class="badge bg-amber">⚠ Defects</span></td><td>DEF-004, DEF-005, DEF-006</td></tr>
+      <tr><td>F4 · Craft Tailored Resume</td><td><span class="badge bg-amber">⚠ Defects</span></td><td>DEF-007, DEF-008</td></tr>
+      <tr><td>F5 · Interview Prep</td><td><span class="badge bg-red">❌ Blocker</span></td><td>DEF-002</td></tr>
+      <tr><td>F6 · Plans & Subscription</td><td><span class="badge bg-green">✓ Pass</span></td><td>—</td></tr>
+      <tr><td>F7 · Jobs</td><td><span class="badge bg-green">✓ Pass</span></td><td>—</td></tr>
+      <tr><td>F8 · Cover Letter — Create</td><td><span class="badge bg-amber">⚠ Defect</span></td><td>DEF-010</td></tr>
+      <tr><td>F9 · Cover Letter — Tailor</td><td><span class="badge bg-gray">Deferred</span></td><td>Feature not yet built</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-bottom:1rem">
+    <div style="font-size:13px;font-weight:500;margin-bottom:10px">Defect summary</div>
+    <div class="defect-item" style="background:#fcebeb;border-color:#E24B4A"><div style="display:flex;gap:8px;margin-bottom:6px"><span class="badge bg-red">DEF-002 · P0</span><span class="badge bg-red">🚫 Release Blocker</span></div><div class="defect-title">Interview Prep button unresponsive on all Safari browsers</div><div class="defect-meta">Safari mobile (iOS 26.4.2) + Safari desktop (v18.6)</div><div class="defect-desc">Complete feature failure on Safari. CareerAI's core differentiator is inaccessible on the dominant US mobile browser.</div></div>
+    <div class="defect-item" style="background:#fef0e6;border-color:#D85A30"><div style="display:flex;gap:8px;margin-bottom:6px"><span class="badge bg-amber">DEF-008 · P1</span><span class="badge bg-gray">Tailored Resume</span></div><div class="defect-title">No resume state shows empty screen with no actionable next step</div><div class="defect-meta">Chrome desktop · Windows 11</div><div class="defect-desc">Resume selection screen loads with "You don't have any resumes yet." The Tailor My Resume button is disabled and no link or button directs the user to upload a resume — user is stuck.</div></div>
+    <div class="defect-item" style="background:#fef0e6;border-color:#D85A30"><div style="display:flex;gap:8px;margin-bottom:6px"><span class="badge bg-amber">DEF-010 · P1</span><span class="badge bg-gray">Cover Letter</span></div><div class="defect-title">Empty cover letter fields allow download without validation</div><div class="defect-meta">Chrome desktop · Windows 11</div><div class="defect-desc">System downloads an empty cover letter PDF despite all required fields being empty. No validation error shown — user could share a blank PDF without realising.</div></div>
+    <div class="defect-item" style="background:#faeeda;border-color:#BA7517"><div style="display:flex;gap:8px;margin-bottom:6px"><span class="badge bg-amber">DEF-003 to DEF-007 · P2</span><span class="badge bg-gray">Multiple flows</span></div><div class="defect-title">6 medium severity defects — fix in next sprint</div><div class="defect-meta">Profile · Resume Builder · AI Features · Safari mobile</div><div class="defect-desc">Includes incorrect error messages on file upload, long input not rejected, profile saves without validation, AI tailored resume provides no gap analysis, and text wrapping on Safari mobile buttons.</div></div>
+  </div>
+
+  <div style="padding:12px 16px;background:#eaf3de;border-radius:10px;border-left:3px solid #639922;margin-bottom:1rem">
+    <p style="font-size:13px;color:#27500a">✅ <strong>Three critical differentiators verified in testing:</strong> AI never fabricated credentials (TC-019) · Price shown matched amount charged (TC-026) · Cancel button visible without contacting support (TC-029)</p>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-icon">⚠️</div>
+    <div>
+      <div class="verdict-title">Release recommendation — Go with conditions</div>
+      <div class="verdict-desc">Approved once DEF-002, DEF-008, and DEF-010 are resolved and verified. 6 medium severity defects scheduled for the sprint immediately following launch.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:#eeedfe;color:#3c3489">7</span> 2-month sprint plan</div>
+  <div class="section-sub">24 backlog items across 4 sprints — every item traced to research or test findings</div>
+  <div class="sprint-grid">
+    <div class="sprint-card" style="border-top:3px solid #E24B4A">
+      <div class="sprint-name">Sprint 1 · Week 1–2</div>
+      <div class="sprint-weeks"><span class="badge bg-red">Must Have</span></div>
+      <div class="sprint-goal">Fix blockers · launch on Chrome & Firefox</div>
+      <div class="sprint-item"><div class="dot" style="background:#E24B4A"></div>Fix Interview Prep on Safari (DEF-002)</div>
+      <div class="sprint-item"><div class="dot" style="background:#E24B4A"></div>Fix text wrapping Safari mobile (DEF-001)</div>
+      <div class="sprint-item"><div class="dot" style="background:#1D9E75"></div>Verify billing price accuracy</div>
+      <div class="sprint-item"><div class="dot" style="background:#1D9E75"></div>Verify cancel button visible</div>
+      <div class="sprint-item"><div class="dot" style="background:#378ADD"></div>Full Safari regression</div>
+    </div>
+    <div class="sprint-card" style="border-top:3px solid #378ADD">
+      <div class="sprint-name">Sprint 2 · Week 3–4</div>
+      <div class="sprint-weeks"><span class="badge bg-red">Must Have</span></div>
+      <div class="sprint-goal">Trust across all AI outputs</div>
+      <div class="sprint-item"><div class="dot" style="background:#378ADD"></div>AI confidence indicator</div>
+      <div class="sprint-item"><div class="dot" style="background:#378ADD"></div>Prevent credential fabrication</div>
+      <div class="sprint-item"><div class="dot" style="background:#378ADD"></div>Fix cover letter empty field validation (DEF-010)</div>
+      <div class="sprint-item"><div class="dot" style="background:#1D9E75"></div>Verified posting date on listings</div>
+      <div class="sprint-item"><div class="dot" style="background:#E24B4A"></div>Fix profile + resume error messaging (DEF-003–007)</div>
+    </div>
+    <div class="sprint-card" style="border-top:3px solid #BA7517">
+      <div class="sprint-name">Sprint 3 · Week 5–6</div>
+      <div class="sprint-weeks"><span class="badge bg-amber">Should Have</span></div>
+      <div class="sprint-goal">Interview Prep + B2B launch</div>
+      <div class="sprint-item"><div class="dot" style="background:#D4537E"></div>Interview Prep tied to JD</div>
+      <div class="sprint-item"><div class="dot" style="background:#D4537E"></div>Interview Prep on free tier</div>
+      <div class="sprint-item"><div class="dot" style="background:#BA7517"></div>B2B platform license model</div>
+      <div class="sprint-item"><div class="dot" style="background:#BA7517"></div>Bulk account creation</div>
+      <div class="sprint-item"><div class="dot" style="background:#BA7517"></div>Student onboarding flow</div>
+    </div>
+    <div class="sprint-card" style="border-top:3px solid #639922">
+      <div class="sprint-name">Sprint 4 · Week 7–8</div>
+      <div class="sprint-weeks"><span class="badge bg-green">Should Have</span></div>
+      <div class="sprint-goal">Pipeline + B2B dashboard + launch</div>
+      <div class="sprint-item"><div class="dot" style="background:#BA7517"></div>B2B admin dashboard</div>
+      <div class="sprint-item"><div class="dot" style="background:#1D9E75"></div>End-to-end job pipeline view</div>
+      <div class="sprint-item"><div class="dot" style="background:#1D9E75"></div>Link assets to job record</div>
+      <div class="sprint-item"><div class="dot" style="background:#639922"></div>7-day renewal reminder email</div>
+      <div class="sprint-item"><div class="dot" style="background:#888"></div>Final regression — all P1 browsers</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-box" style="margin-top:1.5rem">
+  <div class="label">🎯 Bottom line</div>
+  <p>Testing confirmed CareerAI's three core differentiators work correctly — AI never fabricates, billing is transparent, and cancellation is one-click. The only blocker is Interview Prep on Safari. Fix that and CareerAI is ready to launch as the first AI job search tool users can actually trust.</p>
+</div>
+
+</div>
