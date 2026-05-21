@@ -60,7 +60,7 @@ The report was built as an interactive HTML document and is hosted on GitHub Pag
 ## How to view
 
 **Option 1 — Live interactive version:**  
-👉 [View on GitHub Pages](your-github-pages-link)
+👉 [View on GitHub Pages](https://chins-10.github.io/CareerAI-Stakeholder-Report/)
 
 **Option 2 — Run locally:**
 ```bash
