@@ -96,7 +96,8 @@ and what ships first.
 | GitHub Pages | Free hosting and deployment |
 | Jira | Sprint and backlog management |
 | Google Forms | User survey |
-
+| Netlify | Primary deployment and hosting |
+| GitHub Pages | Secondary deployment |
 ---
 
 ## Related repositories
@@ -104,7 +105,7 @@ and what ships first.
 | Repository | Description |
 |---|---|
 | [careerai-competitive-analysis](https://github.com/Chins-10/CareerAI-competitive-Analysis) | Full research documents and raw data |
-| [careerai-enterprise-dashboard](https://github.com/Chins-10/careerai-enterprise-dashboard) | B2B admin dashboard for universities and bootcamps |
+| [careerai-enterprise-dashboard](https://github.com/Chins-10/CareerAI-Enterprise-Dashboard) | B2B admin dashboard for universities and bootcamps |
 
 ---
 
