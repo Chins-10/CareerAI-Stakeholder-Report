@@ -108,10 +108,3 @@ and what ships first.
 
 ---
 
-## Contact
-
-**Chinmayee Gorugonthu**  
-Product Manager · Data Scientist  
-📧 chinnu.gvp@gmail.com  
-🔗 [LinkedIn](your-linkedin-url)  
-🌐 [Portfolio](https://silver-sprite-84e615.netlify.app)
