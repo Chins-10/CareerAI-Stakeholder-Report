@@ -94,7 +94,6 @@ and what ships first.
 |---|---|
 | HTML / CSS / JavaScript | Interactive report build |
 | GitHub Pages | Free hosting and deployment |
-| Netlify | CareerAI frontend deployment |
 | Jira | Sprint and backlog management |
 | Google Forms | User survey |
 
