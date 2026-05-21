@@ -55,3 +55,64 @@ The report was built as an interactive HTML document and is hosted on GitHub Pag
 ---
 
 ## Repository structure
+---
+
+## How to view
+
+**Option 1 — Live interactive version:**  
+👉 [View on GitHub Pages](your-github-pages-link)
+
+**Option 2 — Run locally:**
+```bash
+git clone https://github.com/Chins-10/careerai-stakeholder-report
+cd careerai-stakeholder-report
+open report/index.html
+```
+
+---
+
+## Design decisions
+
+The report was designed as a visual, stakeholder-ready document rather than 
+a text report. Key design choices:
+
+- **Dark hero banner** — core insight visible within 3 seconds of opening
+- **Colour-coded feature matrix** — green / amber / red badges for instant scanning
+- **Progress bars for QA results** — pass rates by browser visible at a glance
+- **Sprint cards** — each sprint has a clear goal, priority level, and item list
+- **Impact vs Effort 2×2 grid** — visual prioritization framework
+
+The goal was a document a busy product leader could scan in 60 seconds and 
+walk away with the three things that matter — what we found, what we recommend, 
+and what ships first.
+
+---
+
+## Tools used
+
+| Tool | Purpose |
+|---|---|
+| HTML / CSS / JavaScript | Interactive report build |
+| GitHub Pages | Free hosting and deployment |
+| Netlify | CareerAI frontend deployment |
+| Jira | Sprint and backlog management |
+| Google Forms | User survey |
+
+---
+
+## Related repositories
+
+| Repository | Description |
+|---|---|
+| [careerai-competitive-analysis](https://github.com/Chins-10/careerai-competitive-analysis) | Full research documents and raw data |
+| [careerai-enterprise-dashboard](https://github.com/Chins-10/careerai-enterprise-dashboard) | B2B admin dashboard for universities and bootcamps |
+
+---
+
+## Contact
+
+**Chinmayee Gorugonthu**  
+Product Manager · Data Scientist  
+📧 chinnu.gvp@gmail.com  
+🔗 [LinkedIn](your-linkedin-url)  
+🌐 [Portfolio](https://silver-sprite-84e615.netlify.app)
