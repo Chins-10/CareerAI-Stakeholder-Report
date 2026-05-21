@@ -3,7 +3,7 @@
 **Role:** Product Manager  
 **Timeline:** April 2026 – Present  
 **Platform:** AI-powered job search platform  
-**Live report:** [View interactive report](https://github.com/Chins-10/CareerAI-Stakeholder-Report/blob/main/index.html)
+**Live report:** [View interactive report](https://chins-10.github.io/CareerAI-Stakeholder-Report/)
 **Live product:** [CareerAI](https://www.careerai.io/)
 
 ---
@@ -60,7 +60,7 @@ The report was built as an interactive HTML document and is hosted on GitHub Pag
 ## How to view
 
 **Option 1 — Live interactive version:**  
-👉 [View on GitHub Pages](https://chins-10.github.io/CareerAI-Stakeholder-Report/)
+👉 [View on GitHub Pages](https://github.com/Chins-10/CareerAI-Stakeholder-Report/settings/pages)
 
 **Option 2 — Run locally:**
 ```bash
