@@ -103,7 +103,7 @@ and what ships first.
 
 | Repository | Description |
 |---|---|
-| [careerai-competitive-analysis](https://github.com/Chins-10/careerai-competitive-analysis) | Full research documents and raw data |
+| [careerai-competitive-analysis](https://github.com/Chins-10/CareerAI-competitive-Analysis) | Full research documents and raw data |
 | [careerai-enterprise-dashboard](https://github.com/Chins-10/careerai-enterprise-dashboard) | B2B admin dashboard for universities and bootcamps |
 
 ---
